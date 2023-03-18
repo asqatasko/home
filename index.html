@@ -64,15 +64,82 @@
 		</section>
 
 		<section id="pricing">
-			<h3>Pricing</h3>
-			<ul>
-				<li><a href="https://www.advertisepurple.com/" target="_blank">Advertise Purple</a></li>
-				<li><a href="https://www.nurturelife.com/" target="_blank">Nurture Life</a></li>
-				<li><a href="https://a16z.com/" target="_blank">a16z</a></li>
-				<li><a href="https://www.device42.com/" target="_blank">Device42</a></li>
-				<li><a href="https://knowyourcustomer.com/" target="_blank">Know Your Customer</a></li>
-			</ul>
+  			<h2>Pricing</h2>
+  				<div class="carousel">
+    					<div class="carousel-item">
+      					<h3>Basic</h3>
+      					<p>$10/month</p>
+      					<ul>
+        					<li>5 Projects</li>
+        					<li>10 Users</li>
+        					<li>Basic Support</li>
+     					</ul>
+    					</div>
+    					<div class="carousel-item">
+      					<h3>Pro</h3>
+      					<p>$20/month</p>
+      					<ul>
+        					<li>10 Projects</li>
+        					<li>20 Users</li>
+        					<li>Premium Support</li>
+      					</ul>
+    					</div>
+    					<div class="carousel-item">
+      					<h3>Enterprise</h3>
+      					<p>Contact us</p>
+      					<ul>
+        					<li>Unlimited Projects</li>
+        					<li>Unlimited Users</li>
+        					<li>Dedicated Support</li>
+      					</ul>
+    					</div>
+  				</div>
 		</section>
+
+		<style>
+  			.carousel {
+    				display: flex;
+    				flex-wrap: nowrap;
+    				overflow-x: auto;
+    				scroll-snap-type: x mandatory;
+    				-webkit-overflow-scrolling: touch;
+  			}
+
+  			.carousel-item {
+    				flex: 0 0 auto;
+    				width: 300px;
+    				margin-right: 20px;
+    				scroll-snap-align: start;
+    				background-color: #f2f2f2;
+    				text-align: center;
+    				padding: 20px;
+    				border-radius: 10px;
+  			}
+
+  			.carousel-item:last-of-type {
+    				margin-right: 0;
+  			}
+		</style>
+
+		<script>
+  			const carousel = document.querySelector('.carousel');
+  			const items = document.querySelectorAll('.carousel-item');
+
+  			let startX = 0;
+  			let scrollLeft = 0;
+
+  			carousel.addEventListener('mousedown', (e) => {
+    				startX = e.pageX - carousel.offsetLeft;
+    				scrollLeft = carousel.scrollLeft;
+  			});
+
+  			carousel.addEventListener('mouseup', (e) => {
+    				const endX = e.pageX - carousel.offsetLeft;
+    				const distance = endX - startX;
+    				carousel.scrollLeft = scrollLeft - distance;
+  			});
+		</script>
+
 
 		<section id="contact">
 			<h3>Contact Us</h3>
