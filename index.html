@@ -64,72 +64,69 @@
 		</section>
 
 		<section id="pricing">
-  			<h2>Pricing</h2>
-  				<div class="carousel">
-    					<div class="carousel-item">
-      					<h3>Basic</h3>
-      					<p>Free</p>
-      					<ul>
-        					<li>Unlimited Projects</li>
-        					<li>Basic Support</li>
-     					</ul>
-    					</div>
-    					<div class="carousel-item">
-      					<h3>Pro</h3>
-      					<p>$39/month</p>
-      					<ul>
-        					<li>Unlimited Projects</li>
-        					<li>Unlimited Users</li>
-        					<li>Premium Support</li>
-      					</ul>
-    					</div>
-    					<div class="carousel-item">
-  				</div>
-		</section>
+  <h2>Pricing</h2>
+  <div class="pricing">
+    <div class="option basic">
+      <h3>Basic</h3>
+      <p>$10/month</p>
+      <ul>
+        <li>5 Projects</li>
+        <li>10 Users</li>
+        <li>Basic Support</li>
+      </ul>
+    </div>
+    <div class="option pro">
+      <h3>Pro</h3>
+      <p>$20/month</p>
+      <ul>
+        <li>10 Projects</li>
+        <li>20 Users</li>
+        <li>Premium Support</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-		<style>
-  			.carousel {
-    				display: flex;
-    				flex-wrap: nowrap;
-    				overflow-x: auto;
-    				scroll-snap-type: x mandatory;
-    				-webkit-overflow-scrolling: touch;
-  			}
+<style>
+  .pricing {
+    display: flex;
+    justify-content: space-between;
+  }
 
-  			.carousel-item {
-    				flex: 0 0 auto;
-    				width: 300px;
-    				margin-right: 20px;
-    				scroll-snap-align: start;
-    				background-color: #f2f2f2;
-    				text-align: center;
-    				padding: 20px;
-    				border-radius: 10px;
-  			}
+  .option {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
 
-  			.carousel-item:last-of-type {
-    				margin-right: 0;
-  			}
-		</style>
+  .basic {
+    background-color: #f2f2f2;
+  }
 
-		<script>
-  			const carousel = document.querySelector('.carousel');
-  			const items = document.querySelectorAll('.carousel-item');
+  .pro {
+    background-color: #2ecc71;
+    color: #fff;
+  }
 
-  			let startX = 0;
-  			let scrollLeft = 0;
+  .pro:hover {
+    transform: scale(1.05);
+  }
 
-  			carousel.addEventListener('mousedown', (e) => {
-    				startX = e.pageX - carousel.offsetLeft;
-    				scrollLeft = carousel.scrollLeft;
-  			});
+  .pro ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+  }
 
-  			carousel.addEventListener('mouseup', (e) => {
-    				const endX = e.pageX - carousel.offsetLeft;
-    				const distance = endX - startX;
-    				carousel.scrollLeft = scrollLeft - distance;
-  			});
-		</script>
+  .pro li {
+    margin: 10px 0;
+  }
+</style>
+
 
 
 		<section id="contact">
