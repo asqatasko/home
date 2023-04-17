@@ -4,6 +4,21 @@
 	<script>
 		const form = document.getElementById("contact-form");
 		const sendButton = document.getElementById("send-button");
+		const toggleButton = document.querySelector(".toggle-button");
+		const proPriceAnnual = document.querySelector("#pro-price");
+		const proPriceMonthly = document.querySelector("#pro-price-monthly");
+		
+		toggleButton.addEventListener("click", function() {
+  		if (proPriceAnnual.style.display === "block") {
+    			proPriceAnnual.style.display = "none";
+    			proPriceMonthly.style.display = "block";
+    			toggleButton.innerHTML = "<p>Show Annually</p>";
+  		} else {
+    			proPriceAnnual.style.display = "block";
+    			proPriceMonthly.style.display = "none";
+    			toggleButton.innerHTML = "<p>Show Monthly</p>";
+  			}
+		});
 	  
 		sendButton.addEventListener("click", () => {
 		  const formData = new FormData(form);
@@ -81,13 +96,17 @@
     </div>
     <div class="option pro">
       <h3>Pro</h3>
-      <p>$799/year *</p>
+      <p id="pro-price">$799/year *</p>
+      <p id="pro-price-monthly" style="display:none">$79/month *</p>
       <ul>
         <li>Unlimited Projects</li>
         <li>Unlimited Users</li>
         <li>Premium Support</li>
       </ul>
     </div>
+  </div>
+  <div class="toggle-button">
+    <p>Show Monthly</p>
   </div>
     <p style="color: #808080; font-size: small; font-style: italic; padding-top: 20px;">
     * Please note that the pricing listed on this page is only applicable to early bird users who sign up during the promotional period. Once the promotional period ends, the pricing may be subject to change. If you have any questions or concerns, please don't hesitate to contact us.
